@@ -1,0 +1,24 @@
+/* Style sheet for the overall page
+ * Michael Wilson
+ * Math 322 */
+
+#main > div{
+	margin-bottom: 10px;
+}
+
+#controls {
+	margin-left: 50%; 
+}
+
+#view {
+	margin-left: auto;
+	margin-right: auto;
+	overflow: scroll;
+	width: 500px;
+	height: 500px;
+	border: 1px solid black;	
+	box-shadow: 1px 1px lightgrey;	
+	text-align: center;
+	line-height: 100%;
+}
+
