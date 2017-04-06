@@ -1,7 +1,22 @@
 <!DOCTYPE html>
+
+<!-- LIST OF THE COMBINATION KEYS 
+	{
+		` + c : clear,
+
+	}	
+-->
+
+
 <head>
 	<!-- LINK TO JQUERY CDN -->
 	<script src="https://code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>
+
+	<!-- LINK TO BOOSTRAP'S CSS -->
+	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+	<!-- LINK TO BOOSTRAP'S JS -->
+	<script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
 	<!-- LINK TO MY CSS -->
 	<link rel="stylesheet" type="text/css" href="page.css">
@@ -11,7 +26,43 @@
 
 	<title>Week 2</title>
 </head>
-<body>
+<body>	
+	<div id="calculator">
+		<h2>Welcome to the &beta; calulator</h2>
+		<div id="operator-in-use"/></div><br/>
+		<input type=text id="operand" disabled/> <br/>		
+		<button id="power">^</button>		
+		<button id="modulus">%</button>		
+		<button id="factorial">!</button>
+		<button id="clear">c</button><br/>
+
+		<button id="square-root">&Sqrt;</button>
+		<button id="floor">&lfloor;&rfloor;</button>
+		<button id="ceil">&lceil;&rceil;</button>
+		<button id="laplace">&Laplacetrf;{}</button><br/>
+
+		<button class="number" id="number-1">1</button>
+		<button class="number" id="number-2">2</button>
+		<button class="number" id="number-3">3</button>
+		<button id="add">+</button><br/>
+
+		<button class="number" id="number-4">4</button>
+		<button class="number" id="number-5">5</button>
+		<button class="number" id="number-6">6</button>
+		<button id="subtract">-</button><br/>
+
+		<button class="number" id="number-7">7</button>
+		<button class="number" id="number-8">8</button>
+		<button class="number" id="number-9">9</button>
+		<button id="divide">/</button><br/>	
+
+		<button>.</button>
+		<button class="number"  id="number-0">0</button>
+		<button>&pi;</button>		
+		<button id="multiply">*</button><br/>
+		<button id="result">=</button>
+	</div>
+
 	<div id="main">
 		<div id="controls">
 			<input size="35" type=number placeholder="please enter a value..." id="size"/>

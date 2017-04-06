@@ -4,20 +4,139 @@
 (function() {
 	'use strict';
 
+	// keeps track of multiple keys pressed at the same time
+	var key_map = {};
+
+	// value of the conversion to and from a keycode to an int
+	var KEY_CONVERSION = 48;
+
 	// the array that will be used for pascal's triangle
 	var a = [];
 
+	// keeps track of a temporary result 
+	var result = 0;
+
+	// keeps track of the operands
+	var first_operand, second_operand, operator;
+
+	// list of keys that represent numbers 0 - 9
+	var number_keys = [];
+	var number_list;
+
+	// keeps track of the keywords that represent functions
+	var keywords = ["derivate", "integral"];
+
 	window.onload = function() {
+		reset();
+
 		$("#pascal-triangle").click(generatePascalTriangle);
+		
+		for(var i = 0; i <= 9; i++) {
+			number_keys[i] = i;
+		}
+
+		calculator();
 	}
 
-	// function that populates the view with pascal's triangle
-	function generatePascalTriangle() {	
-		reset();			
-		var value = parseInt($("#size").val());
-		pascalTriangle(value);
-		showPascalTriangle();
+	// function that sets up everything with the calculator
+	function calculator() {				
+		clicks();
+
+		$(window).keyup(function(e) {
+			if(e.which == 96) {
+				setAllToFalse();		
+			}
+		});
+
+		$(window).keypress(function(e) {			
+			var temp_val = e.which - KEY_CONVERSION;
+			key_map[e.which] = e.type == "keypress";
+			if(findIndex(temp_val, number_keys) != -1) {
+				appendValue(temp_val);				
+				delayHighlight("#number-" + temp_val);
+			}				
+			// alert(e.which + " " + key_map[96])	
+			if(e.which == 99 && key_map[96] == true) {		
+
+				delayHighlight("#clear");
+				reset();
+			}
+		});				
 	}
+
+	// function that deals with highlighting
+	function delayHighlight(id) {
+		$(id).addClass("highlight");				
+			setTimeout(function() {
+				$(id).removeClass("highlight");
+		}, 100);
+	}
+
+	// function that sets up all of the clicks
+	function clicks() {
+		number_list = document.getElementsByClassName("number");
+		for(var i = 0; i < number_list.length; i++) {
+			$(number_list[i]).click(function() {
+				appendValue($(this).html())
+			});
+		}	
+
+		$("#add").click(getFirstValue); 
+		$("#subtract").click(getFirstValue); 
+		$("#multiply").click(getFirstValue); 
+		$("#divide").click(getFirstValue); 
+		$("#result").click(calculate);
+
+		// clear the input
+		$("#clear").click(function(){
+			reset();			
+		});		
+	}
+
+	// helper method to find the value in an array
+	function findIndex(value, arr) {
+		for(var i = 0; i < arr.length; i++) {
+			if(value == arr[i]) {
+				return i;
+			}
+		}
+		return -1;
+	}
+
+	// function that appends a value to the current operand
+	function appendValue(value) {
+		$("#operand").val($("#operand").val() + parseInt(value));
+	}
+
+	// function that deals with simple calculations
+	function getFirstValue() {
+		first_operand = parseInt($("#operand").val());
+		operator = $(this).html();		
+		$("#operand").val("");
+		$("#operator-in-use").html("Operator in use: " + operator);
+	}
+
+	// calculates an expression
+	function calculate() {
+		if(first_operand != null && operator != "") {
+			second_operand = parseInt($("#operand").val());
+			switch(operator) {
+				case "+": 
+					result = first_operand + second_operand;
+					break;
+				case "-":
+					result = first_operand - second_operand;
+					break;
+				case "*":
+					result = first_operand * second_operand;
+					break;
+				case "/":
+					result = first_operand / second_operand;
+					break;			
+			}
+			$("#operand").val(result);
+		}
+	}	
 
 	// factorial function
 	function factorial(n) {
@@ -60,6 +179,14 @@
 		//console.log("number of rows: " + rows + " array length: " + a.length);
 	}
 
+	// function that populates the view with pascal's triangle
+	function generatePascalTriangle() {	
+		reset();			
+		var value = parseInt($("#size").val());
+		pascalTriangle(value);
+		showPascalTriangle();
+	}
+
 	// displays the pascal triangle to the viewport
 	function showPascalTriangle() {
 		var str = "";
@@ -84,9 +211,21 @@
 		return binomial(n - 1, k - 1) + binomial(n - 1, k);
 	}	
 
+	// sets all of the mappings to false
+	function setAllToFalse() {
+		for(var i = 0; i < key_map.length; i++) {
+			key_map[i] = false;
+		}
+	}
+
 	// function resets the states of the variables that we have used
 	function reset() {
 		a = [];
+		result = null;
+		first_operand = null;
+		second_operand = null;
+		operator = "";
+		$("#operand").val("");
 	}
 })();
 

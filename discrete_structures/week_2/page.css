@@ -2,12 +2,12 @@
  * Michael Wilson
  * Math 322 */
 
-#main > div{
+#main > div:not(#operator-in-use){
 	margin-bottom: 10px;
 }
 
-#controls {
-	margin-left: 50%; 
+#controls, #calculator{
+	text-align: center; 
 }
 
 #view {
@@ -20,5 +20,9 @@
 	box-shadow: 1px 1px lightgrey;	
 	text-align: center;
 	line-height: 100%;
+}
+
+.highlight {
+	background-color: blue;
 }
 
