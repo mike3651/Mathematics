@@ -6,7 +6,7 @@
 	margin-bottom: 10px;
 }
 
-#controls, #calculator{
+#controls, #calculator, td, th{
 	text-align: center; 
 }
 
@@ -16,7 +16,6 @@
 	overflow: scroll;
 	width: 500px;
 	height: 500px;
-	border: 1px solid black;	
 	box-shadow: 1px 1px lightgrey;	
 	text-align: center;
 	line-height: 100%;
@@ -24,5 +23,17 @@
 
 .highlight {
 	background-color: blue;
+}
+
+tr, th, td {	
+	padding: 5px;
+}
+
+#my-calculator, #view, tr, th, td {
+	border: 1px solid black;
+}
+
+#my-calculator {
+	margin: auto;
 }
 

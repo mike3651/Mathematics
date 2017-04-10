@@ -1,0 +1,82 @@
+<!-- 
+	Michael Wilson
+	Special thanks to Sal Khan!
+-->
+<!DOCTYPE html>
+<head>
+	<!-- LINK TO JQUERY -->
+	<script src="https://code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="crossorigin="anonymous"></script>
+
+	<!-- LINK TO MY JS -->
+	<script type="text/javascript" src="index.js"></script>
+
+	<title>Welcome to the derivates page!</title>
+</head>
+<body>
+	<div id="controls">
+		<input id="expression" type="text" placeholder="enter an expression..."/>
+		<button id="calculate">Calculate!</button>
+	</div>
+	<div id="view"></div>
+
+	<h2>About the derivative</h2>
+	<div id="intro-to-derivative">
+		<p>The derivative is used to determine the slope of a function at a given point.</p>
+		
+		<!-- HOW THE DERIVATIVE CAME ABOUT -->
+		<h3>How the derivative arose</h3>
+		<p>Recall that the slope of a function is &Delta;y/&Delta;x. The slope in this case gives us a secant line, <em>a straight line which joins to points on a given function</em>. We can rewrite the y's as functions of x. Doing this gives us the following result: </p>
+		<p>&Delta;y = &fpartint;(x + h) - &fpartint;(x)</p>
+		<p>In this case h represents the difference in the y value of the two functions</p>
+		
+		<!-- GENERALIZED FORM -->	
+		<p>If we end up taking the limit as h&xrarr;0 of &fpartint;(x + h) - &fpartint;(x)/&Delta;x we get a tangent line to &fpartint;(x). This trangent line gives us what is called the <strong>derivative</strong>.</p>
+
+		<!-- EXAMPLE -->
+		<p>Before we dive into the use of the derivative let's go over a simple problem. Let's assume that &fpartint;(x) = 3x<sup>2</sup>. We are asked to find the slope of this function at the point where x = 4. How do we go about this? Limits!</p>
+
+		<p>From the definition of the slope we know that our slope is going to look something along the lines of this</p>
+		<p>
+			Slope: &fpartint;(x + h) - &fpartint;(x)/&Delta;x<br/>
+			= (3(x + h)<sup>2</sup> - 3x^2)/h<br/>
+			= (3x<sup>2</sup> + 6xh + h<sup>2</sup> - 3x<sup>2</sup>)/h<br/>
+			= (6x<del>h</del> + h<sup><del>2</del><ins>1</ins></sup>)/<del>h</del><br/>
+			= 6x + h<br/>
+			At this step we replace the x with 4 to get<br>
+			6 * 4 + h<br/>
+			= 24 + h<br/>		
+			Here we can find the instantaneous slope by taking the limit as h&xrarr;0 we get that the slope at this given point is 24.
+		</p>		
+
+		<!-- GENERAL EXAMPLES -->
+		<p>Let's now generalize this with x<sup>2</sup>, x<sup>3</sup>, &amp; x<sup>4</sup></p>
+		<ul>
+			<li>d[x<sup>2</sup>] = lim<sub>h&xrarr;0</sub>((x + h)<sup>2</sup> - x<sup>2</sup>)/h)<br>
+			 = lim<sub>h&xrarr;0</sub>(2x + h)<br>
+			 = 2x</li><br>
+			<li>d[x<sup>3</sup>] = lim<sub>h&xrarr;0</sub>((x + h)<sup>3</sup> - x<sup>3</sup>)/h)<br>
+			 = lim<sub>h&xrarr;0</sub>((3x<sup>2</sup>h + 3xh<sup>2</sup> + h<sup>3</sup>)/h)<br>
+			 = lim<sub>h&xrarr;0</sub>(3x<sup>2</sup> + 3xh + h<sup>2</sup>)<br>
+			 = 3x<sup>2</sup></li><br>
+			 <li>d[x<sup>4</sup>] = lim<sub>h&xrarr;0</sub>((x + h)<sup>4</sup> - x<sup>4</sup>)/h)<br>		 
+			 = 4x<sup>3</sup></li>
+		</ul>
+		<p>From this we can see a little bit of a general pattern and this pattern is known as the <strong>Power Rule</strong>.</p>
+	</div>
+
+	<h2>The power rule</h2>
+	<div id="power-rule">
+		<!-- GENERALIZED FORMULA -->
+		<p>
+			The generalized formula of the power rule is as follows:<br/>
+			d[x<sup>n</sup>] = nx<sup>n-1</sup>
+		</p>
+
+	</div>
+
+	<h2>References</h2>
+	<div id="works-cited">
+		<p>"Secant, Tangent, and Derivatives." Secant, Tangent, and Derivatives. N.p., n.d. Web. 10 Apr. 2017. </p>
+	</div>
+</body>
+</html>

@@ -2,6 +2,7 @@
  * MATH 322 - discrete structures */
 
 (function() {
+
 	'use strict';
 
 	// keeps track of multiple keys pressed at the same time
@@ -42,13 +43,15 @@
 	function calculator() {				
 		clicks();
 
-		$(window).keyup(function(e) {
-			if(e.which == 96) {
+		$(window).keyup((e) => {			
+			if(e.which == 192) {
 				setAllToFalse();		
 			}
+
+
 		});
 
-		$(window).keypress(function(e) {			
+		$(window).keypress((e) => {		
 			var temp_val = e.which - KEY_CONVERSION;
 			key_map[e.which] = e.type == "keypress";
 			if(findIndex(temp_val, number_keys) != -1) {
@@ -56,10 +59,21 @@
 				delayHighlight("#number-" + temp_val);
 			}				
 			// alert(e.which + " " + key_map[96])	
-			if(e.which == 99 && key_map[96] == true) {		
+			if(key_map[192] == true) {		
+				//alert(e.which);
+				if(e.which == 99) {
+					delayHighlight("#clear");
+					reset();
+				} else if(e.which == 61) {
+					delayHighlight("#add");
+				} else if(e.which == 115) {
+					delayHighlight("#subtract");
+				} else if(e.which == 109) {
+					delayHighlight("#multiply");
+				} else if(e.which == 100) {
+					delayHighlight("#divide");
+				}
 
-				delayHighlight("#clear");
-				reset();
 			}
 		});				
 	}
@@ -67,7 +81,7 @@
 	// function that deals with highlighting
 	function delayHighlight(id) {
 		$(id).addClass("highlight");				
-			setTimeout(function() {
+			setTimeout(() => {
 				$(id).removeClass("highlight");
 		}, 100);
 	}
@@ -76,7 +90,7 @@
 	function clicks() {
 		number_list = document.getElementsByClassName("number");
 		for(var i = 0; i < number_list.length; i++) {
-			$(number_list[i]).click(function() {
+			$(number_list[i]).click(() => {
 				appendValue($(this).html())
 			});
 		}	
@@ -88,7 +102,7 @@
 		$("#result").click(calculate);
 
 		// clear the input
-		$("#clear").click(function(){
+		$("#clear").click(() => {
 			reset();			
 		});		
 	}

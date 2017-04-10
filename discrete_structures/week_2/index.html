@@ -27,40 +27,78 @@
 	<title>Week 2</title>
 </head>
 <body>	
-	<div id="calculator">
+	<div id="calculator" class="container">
 		<h2>Welcome to the &beta; calulator</h2>
-		<div id="operator-in-use"/></div><br/>
-		<input type=text id="operand" disabled/> <br/>		
-		<button id="power">^</button>		
-		<button id="modulus">%</button>		
-		<button id="factorial">!</button>
-		<button id="clear">c</button><br/>
+		<div class="row">
+			<div class="col-md-6">
+				<div id="my-calculator">
+					<div id="operator-in-use"/></div><br/>
+					<input type=text id="operand" disabled/> <br/>		
+					<button id="power">^</button>		
+					<button id="modulus">%</button>		
+					<button id="factorial">!</button>
+					<button id="clear">c</button><br/>
 
-		<button id="square-root">&Sqrt;</button>
-		<button id="floor">&lfloor;&rfloor;</button>
-		<button id="ceil">&lceil;&rceil;</button>
-		<button id="laplace">&Laplacetrf;{}</button><br/>
+					<button id="square-root">&Sqrt;</button>
+					<button id="floor">&lfloor;&rfloor;</button>
+					<button id="ceil">&lceil;&rceil;</button>
+					<button id="laplace">&Laplacetrf;{}</button><br/>
 
-		<button class="number" id="number-1">1</button>
-		<button class="number" id="number-2">2</button>
-		<button class="number" id="number-3">3</button>
-		<button id="add">+</button><br/>
+					<button class="number" id="number-1">1</button>
+					<button class="number" id="number-2">2</button>
+					<button class="number" id="number-3">3</button>
+					<button id="add">+</button><br/>
 
-		<button class="number" id="number-4">4</button>
-		<button class="number" id="number-5">5</button>
-		<button class="number" id="number-6">6</button>
-		<button id="subtract">-</button><br/>
+					<button class="number" id="number-4">4</button>
+					<button class="number" id="number-5">5</button>
+					<button class="number" id="number-6">6</button>
+					<button id="subtract">-</button><br/>
 
-		<button class="number" id="number-7">7</button>
-		<button class="number" id="number-8">8</button>
-		<button class="number" id="number-9">9</button>
-		<button id="divide">/</button><br/>	
+					<button class="number" id="number-7">7</button>
+					<button class="number" id="number-8">8</button>
+					<button class="number" id="number-9">9</button>
+					<button id="divide">/</button><br/>	
 
-		<button>.</button>
-		<button class="number"  id="number-0">0</button>
-		<button>&pi;</button>		
-		<button id="multiply">*</button><br/>
-		<button id="result">=</button>
+					<button>.</button>
+					<button class="number"  id="number-0">0</button>
+					<button>&pi;</button>		
+					<button id="multiply">*</button><br/>
+					<button id="result">=</button>
+				</div>
+			</div>
+			<div class="col-md-6">
+				<table>
+					<tr>
+						<th>Key(s) pressed</th>
+						<th>Functionality</th>
+					</tr>
+					<tr>	
+						<td>` + a</td>
+						<td>Addition selected</td>
+					</tr>
+					<tr>	
+						<td>` + s</td>
+						<td>Subtraction selected</td>
+					</tr>
+					<tr>	
+						<td>` + d</td>
+						<td>Division selected</td>
+					</tr>
+					<tr>	
+						<td>` + m</td>
+						<td>Multiplaction selected</td>
+					</tr>
+					<tr>	
+						<td>` + c</td>
+						<td>Clear the contents of the previous calculations</td>
+					</tr>
+					<tr>	
+						<td>0 - 9</td>
+						<td>Enters the corresponding values into the input section</td>
+					</tr>
+				</table>
+			</div>
+		</div>			
 	</div>
 
 	<div id="main">
