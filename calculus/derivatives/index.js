@@ -54,7 +54,7 @@
 		variable = arr[0];				
 		coefficient = variable.split("x")[0];
 		// check to see if the coefficient exists
-		if(coefficient == null) {
+		if(coefficient == 0) {
 			coefficient = 1;
 		}
 
