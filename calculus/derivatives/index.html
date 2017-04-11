@@ -7,18 +7,16 @@
 	<!-- LINK TO JQUERY -->
 	<script src="https://code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="crossorigin="anonymous"></script>
 
+	<!-- LINK TO MY CSS -->
+	<link rel="stylesheet" type="text/css" href="index.css">
+
 	<!-- LINK TO MY JS -->
 	<script type="text/javascript" src="index.js"></script>
 
 	<title>Welcome to the derivates page!</title>
 </head>
-<body>
-	<div id="controls">
-		<input id="expression" type="text" placeholder="enter an expression..."/>
-		<button id="calculate">Calculate!</button>
-	</div>
-	<div id="view"></div>
-
+<body>	
+	<h1>Welcome to my page on Derivatives!</h1>
 	<h2>About the derivative</h2>
 	<div id="intro-to-derivative">
 		<p>The derivative is used to determine the slope of a function at a given point.</p>
@@ -53,24 +51,60 @@
 		<ul>
 			<li>d[x<sup>2</sup>] = lim<sub>h&xrarr;0</sub>((x + h)<sup>2</sup> - x<sup>2</sup>)/h)<br>
 			 = lim<sub>h&xrarr;0</sub>(2x + h)<br>
-			 = 2x</li><br>
+			 = 2x</li>
 			<li>d[x<sup>3</sup>] = lim<sub>h&xrarr;0</sub>((x + h)<sup>3</sup> - x<sup>3</sup>)/h)<br>
 			 = lim<sub>h&xrarr;0</sub>((3x<sup>2</sup>h + 3xh<sup>2</sup> + h<sup>3</sup>)/h)<br>
 			 = lim<sub>h&xrarr;0</sub>(3x<sup>2</sup> + 3xh + h<sup>2</sup>)<br>
-			 = 3x<sup>2</sup></li><br>
+			 = 3x<sup>2</sup></li>
 			 <li>d[x<sup>4</sup>] = lim<sub>h&xrarr;0</sub>((x + h)<sup>4</sup> - x<sup>4</sup>)/h)<br>		 
 			 = 4x<sup>3</sup></li>
 		</ul>
 		<p>From this we can see a little bit of a general pattern and this pattern is known as the <strong>Power Rule</strong>.</p>
 	</div>
 
-	<h2>The power rule</h2>
-	<div id="power-rule">
-		<!-- GENERALIZED FORMULA -->
+	<h2>Derivative rules</h2>
+	<div id="derivative-rules">	
+
+		<!-- POWER RULE -->	
+		<h3>Power Rule</h3>
 		<p>
 			The generalized formula of the power rule is as follows:<br/>
-			d[x<sup>n</sup>] = nx<sup>n-1</sup>
+			d[ax<sup>n</sup>] = nax<sup>n-1</sup>, where a is an arbitrary constant, n is the power, &amp; x is the manipulated variable.
 		</p>
+		<input id="input-power-rule" type="text" placeholder="enter an expression..."/>
+		<button id="calculate-power-rule">Evaluate derivative</button>	
+		<div id="view-power-rule"></div>
+
+		<!-- ADDITION RULE -->
+		<h3>Addition Rule</h3>
+		<p>
+			d[&fpartint;(x) + g(x)] = d[&fpartint;(x)] + d[g(x)]
+		</p>
+		<input id="input-addition-rule" type="text" placeholder="input: [f(x)] + [g(x)]"/>
+		<button id="calculate-addition-rule">Evaluate derivative</button>	
+		<div id="view-addition-rule"></div>
+
+		<h3>Chain Rule</h3>
+		<p>
+			Assume that we have some function &fpartint;(x) which is in the form (g(x))<sup>n</sup>, where g(x) is just a miscellaneous function of x.<br>
+			With the chain rule we can say that:<br/>d[&fpartint;(x)] = d[g(x)]n(g) <sup>n - 1</sup>
+		</p>
+
+		<h3>Product Rule</h3>
+		<p>
+			Assume that we have a function &fpartint;(x) which consists of a product of two other functions of x, g(x) &amp; h(x).<br>
+			The product rules states:<br/>
+			d[&fpartint;(x)] = d[h(x)]g(x) + d[g(x)]h(x)
+		</p>
+
+		<h3>Common derivatives</h3>
+		<ul>
+			<li>d[e<sup>x</sup>] = e<sup>x</sup></li>
+			<li>d[ln(x)] = d[x]/x = 1/x</li>
+			<li>d[sin(x)] = cos(x)</li>
+			<li>d[cos(x)] = -sin(x)</li>
+			<li>d[tan(x)] = 1/cos<sup>2</sup>(x) = sec<sup>2</sup>(x)</li>			
+		</ul>
 
 	</div>
 

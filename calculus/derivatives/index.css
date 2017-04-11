@@ -1,0 +1,11 @@
+/* My simple styling sheet 
+ * Michael Wilson */
+
+ul {
+	padding-left: 25px;
+	padding-right: 25px;
+	margin-top: 0px;
+}
+li {
+	margin: 5px;
+}
