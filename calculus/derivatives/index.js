@@ -3,9 +3,12 @@
 
 (function() {
 	window.onload = function() {
+		// POWER RULE
 		$("#calculate-power-rule").click(function() {
 			$("#view-power-rule").html("<p>" + evaluate($("#input-power-rule").val()) + "</p>");
 		});
+
+		// ADDITION RULE
 		$("#calculate-addition-rule").click(additionRule);
 	}
 
@@ -22,8 +25,8 @@
 	// function that calculates the derivatives using the concepts of the addition rule
 	function additionRule() {
 		var expression = $("#input-addition-rule").val();
-		var f_x, g_x, return_expression, i = 1, maxLength = expression.length;
-		var d_f_x, d_g_x, additonResult, coefficient, power, variable, arr;
+		var f_x, g_x, d_f_x, d_g_x, return_expression, i = 1, maxLength = expression.length;
+		
 		// deal with the f_x
 		return_expression = subExpression(i, maxLength, expression);
 		f_x = return_expression[0];
@@ -38,7 +41,6 @@
 		
 		d_f_x = evaluate(f_x);
 		d_g_x = evaluate(g_x);
-
 		// console.log("d[f(x)]: " + d_f_x);
 		// console.log("d[g(x)]: " + d_g_x);
 
@@ -46,7 +48,7 @@
 
 	}
 
-	// splits an a simple expression 
+	// splits a simple expression 
 	// param -> str : The string to split
 	function evaluate(str) {
 		var arr, variable, coefficient, power;
@@ -106,8 +108,7 @@
 				return i;
 			}
 		}
-
-		// know start state found
+		// no start state found
 		return -1;
 	}
 })();
