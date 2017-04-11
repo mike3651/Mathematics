@@ -1,6 +1,10 @@
 /* My simple styling sheet 
  * Michael Wilson */
 
+h1 {
+	text-align: center;
+}
+
 ul {
 	padding-left: 25px;
 	padding-right: 25px;
